@@ -1,1 +1,1 @@
-# react_e-commerce
+# React E-Commerce Application
