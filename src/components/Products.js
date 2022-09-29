@@ -28,7 +28,7 @@ function Products() {
       <section className='productsPageContainer'>
         { loading && <CircularProgress />}
 
-        {products.length ? <h1>Current Products</h1> : null }
+        {products.length && <h1>Current Products</h1>  }
         { products.length > 0 && (
           <div className='currentProductsContainer'>
             {products.map(singleProduct => (

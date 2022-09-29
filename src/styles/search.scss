@@ -1,0 +1,25 @@
+.searchWrapper {
+  width: 40%;
+  display: flex;
+
+  .searchInput {
+    width: 70%;
+    padding: 1%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    padding-left: 2%;
+  }
+
+  .searchSubmit {
+    background: #383838;
+    color: #fafafa;
+    border: none;
+    border-radius: 10px;
+    width: 8%;
+    padding: 1%;
+    margin-left: 1%;
+    cursor: pointer;
+  }
+}
