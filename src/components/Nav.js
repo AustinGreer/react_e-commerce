@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Divider from '@mui/material/Divider';
 
-
 import Search from './Search';
 
 
@@ -17,11 +16,11 @@ function Nav() {
       <Search />
 
       <div className='navLinksWrapper'>
-        <Link to='/'>Home</Link>
+        <Link to='/' className='navItem'>Home</Link>
         <Divider orientation="vertical" flexItem />
-        <Link to='/products'>Categories</Link>
+        <Link to='/products' className='navItem'>Categories</Link>
         <Divider orientation="vertical" flexItem />
-        <Link to='/checkout'>Cart ({cart.length})</Link>
+        <Link to='/checkout' className='navItem'>Cart ({cart.length})</Link>
 
       </div>
     </div>
