@@ -39,6 +39,6 @@ export const fetchProductInfo = (productId) => dispatch => {
   dispatch({ type: FETCH_PRODUCT_INFO_START, payload: true})
 
   axios.get(`https://fakestoreapi.com/products/${productId}`)
-    .then(res => dispatch({type: FETCH_PRODUCT_INFO_SUCCESS, payload: res.data}))
+    .then(res => dispatch({type: FETCH_PRODUCT_INFO_SUCCESS, payload: {...res.data, quantity: 5}}))
     .catch(err => dispatch({ type: FETCH_PRODUCT_INFO_FAILURE, payload: err.message}))
 }

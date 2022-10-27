@@ -12,8 +12,8 @@
   box-shadow: 0 10px 20px 0 rgb(0 0 0 / 20%);
 
   &:hover {
-    background: #f8f0e3;
-}
+    background-color: #1f1f1f;
+  }
 
   img {
     width: 60%;
@@ -21,37 +21,23 @@
     object-fit: cover;
   }
 
-
-
-    h2 {
-      font-size: 1.8rem;
+    .singleProductTitle {
+      font-size: 3rem;
       line-height: 1.5;
       padding-left: 5%;
       width: 80%;
       font-weight: bold;
       margin-top: 2%;
-
-      @media(min-width: 688px) {
-        font-size: 2rem;
-      }
-
-      @media(min-width: 992px) {
-        font-size: 2.3rem;
-      }
     }
   
     p {
-      font-size: 1.6rem;
+      font-size: 2em;
       margin-top: 5%;
       padding-left: 5%;
-  
-      @media(min-width: 688px) {
-        font-size: 1.8rem;
-      }
-
-      @media (min-width: 992px) {
-        font-size: 2rem;
-      }
     }
+  }
+
+  .singleProductContainer:hover h2, .singleProductContainer:hover p  {
+    color: #fafafa;
   }
 

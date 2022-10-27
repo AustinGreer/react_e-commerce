@@ -13,8 +13,8 @@ function SingleProduct({singleProduct}) {
   return (
     <Link to={`/products/${singleProduct.id}`} className='singleProductContainer'>
             <img src={singleProduct.image} alt="product img" />
-              <h2>{truncateTitle(singleProduct.title)}</h2>
-              <p>${singleProduct.price}</p>
+            <h2 className='singleProductTitle'>{truncateTitle(singleProduct.title)}</h2>
+            <p>${singleProduct.price}</p>
               
               {singleProduct.rating && 
                 <p>{singleProduct.rating.rate} stars ({singleProduct.rating.count} reviews)</p>

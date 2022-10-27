@@ -46,7 +46,7 @@ function Landing() {
       </section>
 
       <section className='landingFeaturedSection'>
-        <h2>Featured Products</h2>
+        <h2 className='featureTitle'>Featured Products</h2>
         <div className='productsContainer'>
           {state.products.length > 0 && state.products.map(product => (
             <SingleProduct singleProduct={product} />
