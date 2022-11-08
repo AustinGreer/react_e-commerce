@@ -1,19 +1,23 @@
-import React, { useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { fetchProductInfo } from '../store/actions/actions';
+import { fetchProductInfo, addToCart } from '../store/actions/actions';
 
 function ProductInfo() {
   const { id } = useParams();
   const state = useSelector(state => state);
   const dispatch = useDispatch();
+  const [disabledBtn, setDisabledBtn] = useState(false);
 
-  //TODO: need to memoize state with useCallBack
 
   useEffect(() => {
     dispatch(fetchProductInfo(id));
   }, [dispatch, id])
+
+  const addItemToCart = () => {
+    dispatch(addToCart(state.productInfo))
+  }
 
   return (
     <section className='productInfoContainer'>
@@ -24,8 +28,15 @@ function ProductInfo() {
           <h3>${state.productInfo.price}</h3>
           { state.productInfo.rating && <h3>{state.productInfo.rating.rate} stars ({state.productInfo.rating.count} reviews)</h3> }
           <div className='productInfoAddtoCart'>
-            <h4>In stock ({state.productInfo.quantity})</h4>
-            <button>Add to Cart</button>
+
+            {state.productInfo.quantity > 0 ? (
+              <>
+                <h4>In Stock ({state.productInfo.quantity})</h4>
+                <button onClick={addItemToCart}>Add to Cart</button>
+              </>
+            ) : (
+              <h4>Out of Stock</h4>
+            )}
           </div>
         </div>
       </section>
