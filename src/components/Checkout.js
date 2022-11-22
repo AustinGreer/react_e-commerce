@@ -11,13 +11,7 @@ function Checkout() {
   
   return (
     <div>
-      { state.cart.length > 0 ? 
-        state.cart.map(item => (
-          <div>{item.title}</div>
-        ))
-      :
-        <div>No items in cart</div>
-    }
+      Checkout Page
     </div>
   )
 }

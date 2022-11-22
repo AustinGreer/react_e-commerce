@@ -11,7 +11,7 @@ function Landing() {
   const navigate = useNavigate()
 
   const shopAllProductsRedirectHandler = () => {
-    navigate("/products");
+    navigate("/categories/allProducts");
   }
 
   useEffect(() => {
@@ -38,7 +38,7 @@ function Landing() {
             {state.categories.map(category => (
               <Link 
                 id={category.replaceAll(" ", "").replaceAll("'", "") + 'Header'} 
-                to="/products"
+                to={'/categories/' + category}
                 key={category}>{category}</Link>
             ))}
           </div>
@@ -49,7 +49,7 @@ function Landing() {
         <h2 className='featureTitle'>Featured Products</h2>
         <div className='productsContainer'>
           {state.products.length > 0 && state.products.map(product => (
-            <SingleProduct singleProduct={product} />
+            <SingleProduct singleProduct={product} key={product.id} />
           )) }
 
         </div>

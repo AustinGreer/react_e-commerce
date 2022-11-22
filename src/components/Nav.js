@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Divider from '@mui/material/Divider';
@@ -9,6 +9,7 @@ import Search from './Search';
 function Nav() {
   const state = useSelector(state => state);
   const {cart} = state;
+  const [showCategories, setShowCategories] = useState(false);
   
   return (
     <div className='navContainer'>

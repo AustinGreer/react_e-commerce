@@ -29,13 +29,40 @@ export const fetchFeaturedProducts = () => dispatch => {
     .catch(err => console.log(err))
 }
 
-export const fetchAllProducts = () => dispatch => {
+export const fetchAllProducts = (productCategory) => dispatch => {
   dispatch({type: FETCH_ALL_PRODUCTS_START, payload: true})
+
+  if (window.document.location.pathname === '/categories/allProducts') {
+    axios.get('https://fakestoreapi.com/products')
+      .then(res => {
+        dispatch(
+          {
+            type: FETCH_ALL_PRODUCTS_SUCCESS, 
+            payload: {
+              products: res.data,
+              header: 'all products'
+            }
+          }
+        )})
+      .catch(err => dispatch({type: FETCH_ALL_PRODUCTS_FAILURE, payload: err.message}))
+
+    } else {
+      axios.get(`https://fakestoreapi.com/products/category/${productCategory}`)
+        .then(res =>{ 
+          dispatch(
+            {type: FETCH_ALL_PRODUCTS_SUCCESS, 
+            payload: {
+              products: res.data,
+              header: `${productCategory} products`
+            }
+          })
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    } 
+  }
   
-  axios.get('https://fakestoreapi.com/products')
-    .then(res => dispatch({type: FETCH_ALL_PRODUCTS_SUCCESS, payload: res.data}))
-    .catch(err => dispatch({type: FETCH_ALL_PRODUCTS_FAILURE, payload: err.message}))
-}
 
 export const fetchProductInfo = (productId) => dispatch => {
   dispatch({ type: FETCH_PRODUCT_INFO_START, payload: true})

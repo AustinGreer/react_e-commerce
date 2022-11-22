@@ -24,6 +24,10 @@ export const shopReducer = (state = initialState, action) => {
 
     case FETCH_FEATURED_PRODUCTS: 
       const featuredProducts = action.payload.filter(item => item.rating.rate >= 4);
+
+      if (featuredProducts.length > 6) {
+        featuredProducts.length = 6;
+      }
     
       return {
         ...state,
@@ -39,7 +43,8 @@ export const shopReducer = (state = initialState, action) => {
     case FETCH_ALL_PRODUCTS_SUCCESS: 
       return {
         ...state,
-        products: action.payload,
+        products: action.payload.products,
+        categoryHeader: action.payload.header,
         loading: false
       }
 
