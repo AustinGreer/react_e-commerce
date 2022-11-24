@@ -6,6 +6,7 @@ import Landing from './components/Landing';
 import AllProducts from './components/AllProducts';
 import Checkout from './components/Checkout';
 import ProductInfo from './components/ProductInfo';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route path="Checkout"  element={<Checkout />} />
         <Route path="products/:id" element={<ProductInfo />} />
       </Routes>
+
+      <Footer />
     </>
   );
 }

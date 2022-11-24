@@ -1,0 +1,15 @@
+footer {
+  border: 2px solid black;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #1f1f1f;
+  color: #f5f5f5;
+  width: 100%;
+  padding: 5% 0;
+  margin-top: 5%;
+
+  p {
+    font-size: 2rem;
+  }
+}
